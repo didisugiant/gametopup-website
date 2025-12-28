@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - GameTopUp</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Admin Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-crown"></i>
+                <h2>Admin Login</h2>
+                <p>Masukkan kredensial Anda</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Masukkan username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                
+                <div class="login-info">
+                    <p><strong>Login default:</strong></p>
+                    <p>Username: <code>admin</code></p>
+                    <p>Password: <code>admin123</code></p>
+                    <p class="warning">⚠️ Ganti password di pengaturan setelah login!</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Hidden until login) -->
+    <div id="admin-dashboard" style="display: none;">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="admin-navbar">
+                    <div class="admin-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>Admin Panel</span>
+                    </div>
+                    
+                    <div class="admin-user">
+                        <div class="user-avatar">AD</div>
+                        <div>
+                            <div id="admin-name">Admin</div>
+                            <div style="font-size: 0.8rem; color: #ccc;">Super Admin</div>
+                        </div>
+                        <button class="btn btn-danger btn-sm" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Layout -->
+        <div class="admin-container">
+            <!-- Sidebar -->
+            <nav class="admin-sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active" onclick="showTab('dashboard')"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li><a href="#" onclick="showTab('transactions')"><i class="fas fa-exchange-alt"></i><span>Transaksi</span></a></li>
+                    <li><a href="#" onclick="showTab('products')"><i class="fas fa-gamepad"></i><span>Produk</span></a></li>
+                    <li><a href="#" onclick="showTab('orders')"><i class="fas fa-shopping-cart"></i><span>Pesanan</span></a></li>
+                    <li><a href="#" onclick="showTab('settings')"><i class="fas fa-cog"></i><span>Pengaturan</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="admin-main" id="admin-content">
+                <!-- Dashboard will be loaded here -->
+            </main>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
